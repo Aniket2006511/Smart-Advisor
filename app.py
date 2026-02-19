@@ -3,7 +3,7 @@ import json
 import numpy as np
 import tensorflow as tf
 from flask import Flask, render_template, request, jsonify
-from google import genai
+import google.generativeai as genai
 
 app = Flask(__name__)
 
