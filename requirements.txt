@@ -1,0 +1,6 @@
+flask
+tensorflow-cpu
+numpy
+google-generativeai
+gunicorn
+google-cloud-texttospeech

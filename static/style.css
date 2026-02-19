@@ -1,0 +1,158 @@
+:root {
+    --primary: #1b5e20;
+    --accent: #ff9800;
+    --bg: #f4f7f6;
+    --card-bg: rgba(255, 255, 255, 0.95);
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+}
+
+header {
+    background: linear-gradient(135deg, #1b5e20 0%, #388e3c 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+h1 { font-family: 'Khand', sans-serif; margin: 0; font-size: 2.5rem; }
+
+/* Menu Styling */
+.main-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.menu-item {
+    background: var(--card-bg);
+    color: var(--primary);
+    padding: 10px;
+    border-radius: 15px;
+    width: 80px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.menu-item:hover { transform: translateY(-5px); }
+.menu-item span { font-size: 1.5rem; }
+.menu-item p { font-size: 0.7rem; margin: 5px 0 0; font-weight: bold; }
+
+/* Main Content */
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.badges span {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+
+button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.result-card { border-left: 8px solid var(--accent); }
+/* डार्क मोडसाठी कलर्स */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+body.dark-mode .card {
+    background: #1e1e1e;
+    color: #eee;
+}
+
+/* हवामान कार्ड */
+.weather-card {
+    background: #fff3e0;
+    color: #e65100;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    margin: 15px auto;
+}
+
+/* माईक बटन */
+.mic-btn {
+    background: #f44336;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(244, 67, 54, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0); }
+}
+.remedy-card {
+    background: #e8f5e9;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 10px;
+    border-left: 5px solid #2e7d32;
+    text-align: left;
+}
+
+.remedy-card p {
+    margin: 8px 0;
+    line-height: 1.5;
+    color: #1b5e20;
+}
+
+.upload-box input {
+    margin-bottom: 10px;
+}
+
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#disease-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

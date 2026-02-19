@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="mr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Crop Advisor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <style>
+      .voice-activation-btn {
+        background: #2e7d32;
+        color: white;
+        padding: 15px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Khand:wght@500&family=Poppins:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>🌿 स्मार्ट पीक सल्लागार</h1>
+        <p>Smart Crop Advisor</p>
+      </div>
+
+      <nav class="main-menu">
+        <div class="menu-item">
+          <span>❓</span>
+          <p>रोग सल्ला</p>
+        </div>
+        <div class="menu-item">
+          <span>📷</span>
+          <p>फोटो निदान</p>
+        </div>
+        <div class="menu-item">
+          <span>📒</span>
+          <p>नोंदी</p>
+        </div>
+        <div class="menu-item">
+          <span>💰</span>
+          <p>बाजारभाव</p>
+        </div>
+        <div class="menu-item">
+          <span>👨‍🌾</span>
+          <p>अनुभव</p>
+        </div>
+        <div class="menu-item">
+          <span>📜</span>
+          <p>योजना</p>
+        </div>
+        <div class="top-controls">
+          <div class="weather-card" id="weather-info">
+            ☀️ आजचे हवामान: ३२°C | फवारणीसाठी योग्य वेळ!
+          </div>
+          <div class="mode-switch">
+            <label for="darkModeToggle">🌙 <input type="checkbox" id="darkModeToggle" /> Dark Mode</label>
+          </div>
+        </div>
+
+        <div class="voice-search-box">
+          <button onclick="startVoiceRecognition()" class="mic-btn">
+            🎙️ काहीतरी विचारा...
+          </button>
+          <p id="voice-status"></p>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <button
+        id="activateVoice"
+        type="button"
+        onclick="initVoice()"
+        class="voice-activation-btn"
+      >
+        📢 आवाज सुरू करण्यासाठी येथे क्लिक करा (Click to Enable Voice)
+      </button>
+      <section class="card overview">
+        <h2>प्रोजेक्ट ओव्हरव्ह्यू</h2>
+        <p>
+          हा प्रोजेक्ट प्रगत PWA तंत्रज्ञान वापरून शेतकऱ्यांना विना इंटरनेट
+          (Offline) पिकांवरील रोगांची माहिती आणि सेंद्रिय उपाय देतो.
+        </p>
+        <div class="badges">
+          <span>ऑफलाइन सक्षम</span>
+          <span>मराठी ऑडिओ</span>
+          <span>सेंद्रिय उपचार</span>
+        </div>
+      </section>
+
+      <section class="card upload-section">
+        <h2>🔍 रोग तपासणी (फोटो अपलोड)</h2>
+       <div class="upload-box">
+  <label for="imageInput">Select Image:</label>
+  <input type="file" id="imageInput" name="image" />
+  <button onclick="analyzeImage()">Analyze</button>
+</div>
+
+<!-- ✅ ADD TOGGLE HERE -->
+<div class="mode-toggle">
+  <label>
+    <input type="radio" name="mode" value="offline" checked>
+    Offline Mode
+  </label>
+
+  <label class="online-mode-label">
+    <input type="radio" name="mode" value="online">
+    Online AI (Gemini)
+  </label>
+</div>
+
+</section>
+
+
+      <section
+        id="result-section"
+        class="card result-card hidden"
+      >
+        <h2>निदान आणि उपाय</h2>
+        <div id="disease-name"></div>
+        <div id="remedy-content"></div>
+        <button class="audio-btn" onclick="speakResult()">🔊 सल्ला ऐका</button>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
