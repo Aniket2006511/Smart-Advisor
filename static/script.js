@@ -33,10 +33,16 @@ function analyzeImage() {
 
       console.log("Server response:", data);
 
-      // If error in online → fallback to offline
       if (data.error && selectedMode === "online") {
         console.log("Online failed. Switching to offline...");
-        fallbackToOffline(formData);
+        fallbackToOffline();
+        return;
+      }
+
+      // Also fallback if online returned empty response
+      if (selectedMode === "online" && (!data.ai_response || data.ai_response.trim() === "")) {
+        console.log("Online returned empty. Switching to offline...");
+        fallbackToOffline();
         return;
       }
 
@@ -55,7 +61,7 @@ function analyzeImage() {
     .catch(err => {
       console.log("Fetch error:", err);
       if (selectedMode === "online") {
-        fallbackToOffline(formData);
+        fallbackToOffline();
       } else {
         alert("Prediction failed.");
       }
@@ -65,11 +71,20 @@ function analyzeImage() {
 // ===============================
 // FALLBACK TO OFFLINE
 // ===============================
-function fallbackToOffline(formData) {
+function fallbackToOffline() {
+  // Re-build FormData fresh from the file input (stream was consumed)
+  const input = document.getElementById("imageInput");
+  if (!input.files.length) {
+    alert("Offline prediction failed: no file available.");
+    return;
+  }
+
+  const freshFormData = new FormData();
+  freshFormData.append("file", input.files[0]);
 
   fetch("/predict", {
     method: "POST",
-    body: formData,
+    body: freshFormData,
   })
     .then(res => res.json())
     .then(data => {
@@ -95,45 +110,116 @@ function showOfflineResult(data) {
     "<b>Diagnosis:</b> " + data.diagnosis +
     "<br><b>Confidence:</b> " + data.confidence + "%";
 
-  let stepsHTML = "<h4>English:</h4><ul>";
+  let stepsHTML = "<h4>🧪 Chemical Treatment (English):</h4><ul>";
   data.steps_en.forEach(step => {
     stepsHTML += "<li>" + step + "</li>";
   });
   stepsHTML += "</ul>";
 
-  stepsHTML += "<h4>मराठी:</h4><ul>";
+  stepsHTML += "<h4>🧪 Chemical Treatment (मराठी):</h4><ul>";
   data.steps_mr.forEach(step => {
     stepsHTML += "<li>" + step + "</li>";
   });
   stepsHTML += "</ul>";
 
+  // 🌿 ORGANIC SECTION
+  if (data.organic_en && data.organic_en.length > 0) {
+
+    stepsHTML += "<h4 style='color:green;'>🌿 Organic Treatment (English):</h4><ul>";
+    data.organic_en.forEach(step => {
+      stepsHTML += "<li>" + step + "</li>";
+    });
+    stepsHTML += "</ul>";
+
+    stepsHTML += "<h4 style='color:green;'>🌿 सेंद्रिय उपाय (मराठी):</h4><ul>";
+    data.organic_mr.forEach(step => {
+      stepsHTML += "<li>" + step + "</li>";
+    });
+    stepsHTML += "</ul>";
+  }
+
   document.getElementById("remedy-content").innerHTML = stepsHTML;
 
-  lastEnglishSteps = data.steps_en;
-  lastMarathiSteps = data.steps_mr;
+  // 🔥 STORE ALL FOR VOICE
+  lastEnglishSteps = [...data.steps_en, ...(data.organic_en || [])];
+  lastMarathiSteps = [...data.steps_mr, ...(data.organic_mr || [])];
   lastAIResponse = "";
 
   speakAdvice(lastEnglishSteps, lastMarathiSteps);
 }
 
 // ===============================
-// ONLINE RESULT (Gemini)
+// ONLINE RESULT (OpenRouter)
 // ===============================
 function showOnlineResult(data) {
 
   document.getElementById("result-section").style.display = "block";
 
-  document.getElementById("disease-name").innerHTML =
-    "<b>Diagnosis:</b> " + data.diagnosis;
+  const raw = data.ai_response || "";
 
-  document.getElementById("remedy-content").innerHTML =
-    "<div>" + data.ai_response.replace(/\n/g, "<br>") + "</div>";
+  // Parse structured sections by label
+  function extractSection(text, label) {
+    const regex = new RegExp(label + ":\\s*\\n([\\s\\S]*?)(?=\\n[A-Z_]+:|$)", "i");
+    const match = text.match(regex);
+    if (!match) return [];
+    return match[1]
+      .split("\n")
+      .map(l => l.replace(/^[-*•]\s*/, "").replace(/\*\*/g, "").trim())
+      .filter(l => l.length > 2);
+  }
 
-  lastAIResponse = data.ai_response;
-  lastEnglishSteps = [];
-  lastMarathiSteps = [];
+  function extractField(text, label) {
+    const match = text.match(new RegExp(label + ":\\s*(.+)", "i"));
+    return match ? match[1].replace(/\*\*/g, "").trim() : "";
+  }
 
-  speakAI(data.ai_response);
+  const crop    = extractField(raw, "CROP");
+  const disease = extractField(raw, "DISEASE");
+  const chemEn  = extractSection(raw, "CHEMICAL_EN");
+  const chemMr  = extractSection(raw, "CHEMICAL_MR");
+  const orgEn   = extractSection(raw, "ORGANIC_EN");
+  const orgMr   = extractSection(raw, "ORGANIC_MR");
+
+  const title = crop && disease ? `${crop} — ${disease}` : (crop || disease || "AI Vision Analysis");
+  document.getElementById("disease-name").innerHTML = "<b>Diagnosis:</b> " + title;
+
+  let html = "";
+
+  if (chemEn.length) {
+    html += "<h4>🧪 Chemical Treatment (English):</h4><ul>";
+    chemEn.forEach(s => html += "<li>" + s + "</li>");
+    html += "</ul>";
+  }
+
+  if (chemMr.length) {
+    html += "<h4>🧪 Chemical Treatment (मराठी):</h4><ul>";
+    chemMr.forEach(s => html += "<li>" + s + "</li>");
+    html += "</ul>";
+  }
+
+  if (orgEn.length) {
+    html += "<h4 style='color:green;'>🌿 Organic Treatment (English):</h4><ul>";
+    orgEn.forEach(s => html += "<li>" + s + "</li>");
+    html += "</ul>";
+  }
+
+  if (orgMr.length) {
+    html += "<h4 style='color:green;'>🌿 सेंद्रिय उपाय (मराठी):</h4><ul>";
+    orgMr.forEach(s => html += "<li>" + s + "</li>");
+    html += "</ul>";
+  }
+
+  if (!html) {
+    html = "<p>" + raw.replace(/\*\*/g, "").replace(/\n/g, "<br>") + "</p>";
+  }
+
+  document.getElementById("remedy-content").innerHTML = html;
+
+  lastEnglishSteps = [...chemEn, ...orgEn];
+  lastMarathiSteps = [...chemMr, ...orgMr];
+  lastAIResponse = "";
+
+  speakAdvice(lastEnglishSteps, lastMarathiSteps);
 }
 
 // ===============================
@@ -210,3 +296,27 @@ function initVoice() {
   speechSynthesis.getVoices();
   alert("Google voice ready!");
 }
+
+// ===============================
+// LOAD WEATHER (PUNE)
+// ===============================
+function loadWeather() {
+  fetch("/weather")
+    .then(res => res.json())
+    .then(data => {
+      if (data.error) {
+        document.getElementById("weather-info").innerHTML =
+          "⚠ हवामान उपलब्ध नाही";
+        return;
+      }
+
+      document.getElementById("weather-info").innerHTML =
+        `🌤 आजचे हवामान: ${data.temp}°C | ${data.advice}`;
+    })
+    .catch(() => {
+      document.getElementById("weather-info").innerHTML =
+        "⚠ हवामान उपलब्ध नाही";
+    });
+}
+
+window.addEventListener("load", loadWeather);

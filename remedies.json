@@ -1,534 +1,1377 @@
- {
-"Apple___Apple_scab": {
-"title": "Apple Scab",
-"steps_en": [
-"Remove infected leaves.",
-"Apply captan or myclobutanil fungicide.",
-"Improve air circulation."
-],
-"steps_mr": [
-"संक्रमित पाने काढा.",
-"कॅप्टन किंवा मायकोब्युटानिल फवारणी करा.",
-"हवा खेळती ठेवा."
-]
-},
-
-"Apple___Black_rot": {
-"title": "Apple Black Rot",
-"steps_en": [
-"Prune infected branches.",
-"Remove mummified fruits.",
-"Apply fungicide early season."
-],
-"steps_mr": [
-"संक्रमित फांद्या कापा.",
-"सुकलेली फळे काढा.",
-"हंगामाच्या सुरुवातीला फवारणी करा."
-]
-},
-
-"Apple___Cedar_apple_rust": {
-"title": "Cedar Apple Rust",
-"steps_en": [
-"Apply sulfur fungicide.",
-"Remove nearby cedar plants.",
-"Monitor during wet weather."
-],
-"steps_mr": [
-"सल्फर फवारणी करा.",
-"जवळील सीडर झाडे काढा.",
-"ओलसर हवामानात तपासा."
-]
-},
-
-"Apple___healthy": {
-"title": "Healthy Apple Plant",
-"steps_en": [
-"Maintain regular watering.",
-"Apply balanced fertilizer.",
-"Monitor regularly."
-],
-"steps_mr": [
-"नियमित पाणी द्या.",
-"संतुलित खत द्या.",
-"नियमित तपासा."
-]
-},
-
-"Blueberry___healthy": {
-"title": "Healthy Blueberry Plant",
-"steps_en": [
-"Maintain acidic soil.",
-"Provide proper irrigation.",
-"Apply mulch."
-],
-"steps_mr": [
-"माती आम्लीय ठेवा.",
-"योग्य सिंचन करा.",
-"मल्च वापरा."
-]
-},
-
-"Cherry_(including_sour)___Powdery_mildew": {
-"title": "Cherry Powdery Mildew",
-"steps_en": [
-"Spray sulfur fungicide.",
-"Improve airflow.",
-"Avoid overhead watering."
-],
-"steps_mr": [
-"सल्फर फवारणी करा.",
-"हवा खेळती ठेवा.",
-"वरून पाणी देणे टाळा."
-]
-},
-
-"Cherry_(including_sour)___healthy": {
-"title": "Healthy Cherry Plant",
-"steps_en": [
-"Prune properly.",
-"Apply seasonal fertilizer.",
-"Inspect leaves."
-],
-"steps_mr": [
-"योग्य छाटणी करा.",
-"हंगामी खत द्या.",
-"पाने तपासा."
-]
-},
-
-"Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
-"title": "Gray Leaf Spot",
-"steps_en": [
-"Use resistant varieties.",
-"Apply strobilurin fungicide.",
-"Rotate crops."
-],
-"steps_mr": [
-"प्रतिरोधक वाण वापरा.",
-"फंगीसाइड फवारणी करा.",
-"पीक फेरपालट करा."
-]
-},
-
-"Corn_(maize)___Common_rust_": {
-"title": "Corn Common Rust",
-"steps_en": [
-"Use resistant hybrids.",
-"Apply fungicide if severe.",
-"Monitor humidity."
-],
-"steps_mr": [
-"प्रतिरोधक वाण वापरा.",
-"आवश्यक असल्यास फवारणी करा.",
-"आर्द्रता तपासा."
-]
-},
-
-"Corn_(maize)___Northern_Leaf_Blight": {
-"title": "Northern Leaf Blight",
-"steps_en": [
-"Remove infected debris.",
-"Apply fungicide.",
-"Practice crop rotation."
-],
-"steps_mr": [
-"संक्रमित अवशेष काढा.",
-"फंगीसाइड वापरा.",
-"पीक फेरपालट करा."
-]
-},
-
-"Corn_(maize)___healthy": {
-"title": "Healthy Corn Plant",
-"steps_en": [
-"Maintain nitrogen levels.",
-"Irrigate properly.",
-"Inspect regularly."
-],
-"steps_mr": [
-"नायट्रोजन संतुलित ठेवा.",
-"योग्य सिंचन करा.",
-"नियमित तपासा."
-]
-},
-
-"Grape___Black_rot": {
-"title": "Grape Black Rot",
-"steps_en": [
-"Remove infected grapes.",
-"Spray fungicide.",
-"Improve airflow."
-],
-"steps_mr": [
-"संक्रमित द्राक्षे काढा.",
-"फंगीसाइड फवारणी करा.",
-"हवा खेळती ठेवा."
-]
-},
-
-"Grape___Esca_(Black_Measles)": {
-"title": "Grape Esca",
-"steps_en": [
-"Prune infected vines.",
-"Avoid water stress.",
-"Apply preventive fungicide."
-],
-"steps_mr": [
-"संक्रमित वेल कापा.",
-"पाण्याचा ताण टाळा.",
-"प्रतिबंधक फवारणी करा."
-]
-},
-
-"Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
-"title": "Grape Leaf Blight",
-"steps_en": [
-"Apply copper fungicide.",
-"Remove infected leaves.",
-"Avoid overhead watering."
-],
-"steps_mr": [
-"कॉपर फवारणी करा.",
-"संक्रमित पाने काढा.",
-"वरून पाणी देऊ नका."
-]
-},
-
-"Grape___healthy": {
-"title": "Healthy Grape Vine",
-"steps_en": [
-"Maintain pruning schedule.",
-"Apply fertilizers.",
-"Ensure sunlight."
-],
-"steps_mr": [
-"छाटणी करा.",
-"खत द्या.",
-"सूर्यप्रकाश द्या."
-]
-},
-
-"Orange___Haunglongbing_(Citrus_greening)": {
-"title": "Citrus Greening",
-"steps_en": [
-"Remove infected trees.",
-"Control psyllids.",
-"Use certified seedlings."
-],
-"steps_mr": [
-"संक्रमित झाडे काढा.",
-"सायलिड कीड नियंत्रण करा.",
-"प्रमाणित रोपे वापरा."
-]
-},
-
-"Peach___Bacterial_spot": {
-"title": "Peach Bacterial Spot",
-"steps_en": [
-"Apply copper spray.",
-"Prune infected branches.",
-"Avoid overhead watering."
-],
-"steps_mr": [
-"कॉपर फवारणी करा.",
-"संक्रमित फांद्या कापा.",
-"वरून पाणी टाळा."
-]
-},
-
-"Peach___healthy": {
-"title": "Healthy Peach Plant",
-"steps_en": [
-"Maintain drainage.",
-"Apply seasonal fertilizers.",
-"Inspect fruits."
-],
-"steps_mr": [
-"निचरा ठेवा.",
-"खत द्या.",
-"फळे तपासा."
-]
-},
-
-"Pepper,_bell___Bacterial_spot": {
-"title": "Bell Pepper Bacterial Spot",
-"steps_en": [
-"Use certified seeds.",
-"Apply copper fungicide.",
-"Remove infected plants."
-],
-"steps_mr": [
-"प्रमाणित बियाणे वापरा.",
-"कॉपर फवारणी करा.",
-"संक्रमित झाडे काढा."
-]
-},
-
-"Pepper,_bell___healthy": {
-"title": "Healthy Pepper Plant",
-"steps_en": [
-"Provide sunlight.",
-"Maintain irrigation.",
-"Use balanced fertilizer."
-],
-"steps_mr": [
-"सूर्यप्रकाश द्या.",
-"सिंचन करा.",
-"संतुलित खत द्या."
-]
-},
-
-"Potato___Early_blight": {
-"title": "Potato Early Blight",
-"steps_en": [
-"Apply chlorothalonil.",
-"Remove infected leaves.",
-"Rotate crops."
-],
-"steps_mr": [
-"क्लोरोथॅलोनील फवारणी करा.",
-"संक्रमित पाने काढा.",
-"पीक फेरपालट करा."
-]
-},
-
-"Potato___Late_blight": {
-"title": "Potato Late Blight",
-"steps_en": [
-"Use certified seed.",
-"Apply systemic fungicide.",
-"Destroy infected plants."
-],
-"steps_mr": [
-"प्रमाणित बियाणे वापरा.",
-"सिस्टेमिक फंगीसाइड वापरा.",
-"संक्रमित झाडे नष्ट करा."
-]
-},
-
-"Potato___healthy": {
-"title": "Healthy Potato Plant",
-"steps_en": [
-"Maintain spacing.",
-"Water at base.",
-"Apply compost."
-],
-"steps_mr": [
-"अंतर ठेवा.",
-"मुळाशी पाणी द्या.",
-"सेंद्रिय खत वापरा."
-]
-},
-
-"Raspberry___healthy": {
-"title": "Healthy Raspberry Plant",
-"steps_en": [
-"Prune old canes.",
-"Maintain airflow.",
-"Apply mulch."
-],
-"steps_mr": [
-"जुनी फांदी कापा.",
-"हवा खेळती ठेवा.",
-"मल्च वापरा."
-]
-},
-
-"Soybean___healthy": {
-"title": "Healthy Soybean Plant",
-"steps_en": [
-"Ensure drainage.",
-"Apply inoculants.",
-"Inspect pests."
-],
-"steps_mr": [
-"निचरा ठेवा.",
-"जीवाणू इनोक्युलंट वापरा.",
-"कीड तपासा."
-]
-},
-
-"Squash___Powdery_mildew": {
-"title": "Squash Powdery Mildew",
-"steps_en": [
-"Spray sulfur.",
-"Remove infected leaves.",
-"Avoid leaf wetting."
-],
-"steps_mr": [
-"सल्फर फवारणी करा.",
-"संक्रमित पाने काढा.",
-"पाने ओले करू नका."
-]
-},
-
-"Strawberry___Leaf_scorch": {
-"title": "Strawberry Leaf Scorch",
-"steps_en": [
-"Remove infected foliage.",
-"Improve drainage.",
-"Apply fungicide."
-],
-"steps_mr": [
-"संक्रमित पाने काढा.",
-"निचरा सुधारा.",
-"फंगीसाइड वापरा."
-]
-},
-
-"Strawberry___healthy": {
-"title": "Healthy Strawberry Plant",
-"steps_en": [
-"Maintain mulch.",
-"Water regularly.",
-"Apply nutrients."
-],
-"steps_mr": [
-"मल्च ठेवा.",
-"नियमित पाणी द्या.",
-"पोषक द्या."
-]
-},
-
-"Tomato___Bacterial_spot": {
-"title": "Tomato Bacterial Spot",
-"steps_en": [
-"Use disease-free seeds.",
-"Apply copper spray.",
-"Avoid overhead irrigation."
-],
-"steps_mr": [
-"रोगमुक्त बियाणे वापरा.",
-"कॉपर फवारणी करा.",
-"वरून पाणी देऊ नका."
-]
-},
-
-"Tomato___Early_blight": {
-"title": "Tomato Early Blight",
-"steps_en": [
-"Remove infected leaves.",
-"Apply fungicide.",
-"Rotate crops."
-],
-"steps_mr": [
-"संक्रमित पाने काढा.",
-"फंगीसाइड वापरा.",
-"पीक फेरपालट करा."
-]
-},
-
-"Tomato___Late_blight": {
-"title": "Tomato Late Blight",
-"steps_en": [
-"Apply systemic fungicide.",
-"Remove infected plants.",
-"Improve drainage."
-],
-"steps_mr": [
-"सिस्टेमिक फंगीसाइड वापरा.",
-"संक्रमित झाडे काढा.",
-"निचरा सुधारा."
-]
-},
-
-"Tomato___Leaf_Mold": {
-"title": "Tomato Leaf Mold",
-"steps_en": [
-"Reduce humidity.",
-"Apply fungicide.",
-"Increase spacing."
-],
-"steps_mr": [
-"आर्द्रता कमी करा.",
-"फंगीसाइड वापरा.",
-"अंतर वाढवा."
-]
-},
-
-"Tomato___Septoria_leaf_spot": {
-"title": "Tomato Septoria Leaf Spot",
-"steps_en": [
-"Remove infected leaves.",
-"Spray Mancozeb.",
-"Avoid overhead watering."
-],
-"steps_mr": [
-"संक्रमित पाने काढा.",
-"मॅन्कोझेब फवारणी करा.",
-"वरून पाणी देऊ नका."
-]
-},
-
-"Tomato___Spider_mites Two-spotted_spider_mite": {
-"title": "Tomato Spider Mites",
-"steps_en": [
-"Spray neem oil.",
-"Increase humidity.",
-"Use insecticidal soap."
-],
-"steps_mr": [
-"नीम तेल फवारणी करा.",
-"आर्द्रता वाढवा.",
-"कीटकनाशक साबण वापरा."
-]
-},
-
-"Tomato___Target_Spot": {
-"title": "Tomato Target Spot",
-"steps_en": [
-"Remove infected debris.",
-"Apply fungicide.",
-"Ensure ventilation."
-],
-"steps_mr": [
-"संक्रमित अवशेष काढा.",
-"फंगीसाइड वापरा.",
-"हवा खेळती ठेवा."
-]
-},
-
-"Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
-"title": "Tomato Yellow Leaf Curl Virus",
-"steps_en": [
-"Control whiteflies.",
-"Remove infected plants.",
-"Use resistant varieties."
-],
-"steps_mr": [
-"व्हाइटफ्लाय नियंत्रण करा.",
-"संक्रमित झाडे काढा.",
-"प्रतिरोधक वाण वापरा."
-]
-},
-
-"Tomato___Tomato_mosaic_virus": {
-"title": "Tomato Mosaic Virus",
-"steps_en": [
-"Remove infected plants.",
-"Disinfect tools.",
-"Avoid tobacco contact."
-],
-"steps_mr": [
-"संक्रमित झाडे काढा.",
-"साधने निर्जंतुक करा.",
-"तंबाखू संपर्क टाळा."
-]
-},
-
-"Tomato___healthy": {
-"title": "Healthy Tomato Plant",
-"steps_en": [
-"Maintain watering schedule.",
-"Apply balanced fertilizer.",
-"Monitor regularly."
-],
-"steps_mr": [
-"नियमित पाणी द्या.",
-"संतुलित खत द्या.",
-"नियमित तपासा."
-]
-}
-
+{
+    "Apple___Apple_scab": {
+        "title": "Apple Scab",
+        "steps_en": [
+            "Remove infected leaves.",
+            "Apply captan or myclobutanil fungicide.",
+            "Improve air circulation."
+        ],
+        "steps_mr": [
+            "संक्रमित पाने काढा.",
+            "कॅप्टन किंवा मायकोब्युटानिल फवारणी करा.",
+            "हवा खेळती ठेवा."
+        ],
+        "organic_en": [
+            "Spray neem oil weekly.",
+            "Use baking soda solution (1 tsp per liter).",
+            "Apply compost tea spray.",
+            "Destroy fallen infected leaves."
+        ],
+        "organic_mr": [
+            "दर आठवड्याला नीम तेल फवारणी करा.",
+            "बेकिंग सोडा द्रावण वापरा.",
+            "कंपोस्ट चहा फवारणी करा.",
+            "संक्रमित पाने नष्ट करा."
+        ]
+    },
+    "Apple___Black_rot": {
+        "title": "Apple Black Rot",
+        "steps_en": [
+            "Prune infected branches.",
+            "Remove mummified fruits.",
+            "Apply fungicide early season."
+        ],
+        "steps_mr": [
+            "संक्रमित फांद्या कापा.",
+            "सुकलेली फळे काढा.",
+            "हंगामाच्या सुरुवातीला फवारणी करा."
+        ],
+        "organic_en": [
+            "Spray Bordeaux mixture.",
+            "Apply neem oil.",
+            "Remove infected fruits immediately.",
+            "Use Trichoderma bio-fungicide."
+        ],
+        "organic_mr": [
+            "बोर्डो मिश्रण फवारणी करा.",
+            "नीम तेल वापरा.",
+            "संक्रमित फळे काढा.",
+            "ट्रायकोडर्मा जैव-फंगीसाइड वापरा."
+        ]
+    },
+    "Apple___Cedar_apple_rust": {
+        "title": "Cedar Apple Rust",
+        "steps_en": [
+            "Apply sulfur fungicide.",
+            "Remove nearby cedar plants.",
+            "Monitor during wet weather."
+        ],
+        "steps_mr": [
+            "सल्फर फवारणी करा.",
+            "जवळील सीडर झाडे काढा.",
+            "ओलसर हवामानात तपासा."
+        ],
+        "organic_en": [
+            "Spray organic sulfur.",
+            "Use neem oil spray.",
+            "Remove infected leaves early.",
+            "Maintain proper spacing."
+        ],
+        "organic_mr": [
+            "सेंद्रिय सल्फर फवारणी करा.",
+            "नीम तेल फवारणी करा.",
+            "संक्रमित पाने काढा.",
+            "योग्य अंतर ठेवा."
+        ]
+    },
+    "Apple___healthy": {
+        "title": "Healthy Apple Plant",
+        "steps_en": [
+            "Maintain regular watering.",
+            "Apply balanced fertilizer.",
+            "Monitor regularly."
+        ],
+        "steps_mr": [
+            "नियमित पाणी द्या.",
+            "संतुलित खत द्या.",
+            "नियमित तपासा."
+        ],
+        "organic_en": [
+            "Apply vermicompost.",
+            "Use cow dung manure.",
+            "Mulch with dry leaves.",
+            "Spray panchagavya monthly."
+        ],
+        "organic_mr": [
+            "वर्मी कंपोस्ट वापरा.",
+            "शेणखत वापरा.",
+            "मल्च करा.",
+            "पंचगव्य फवारणी करा."
+        ]
+    },
+    "Blueberry___healthy": {
+        "title": "Healthy Blueberry Plant",
+        "steps_en": [
+            "Maintain acidic soil.",
+            "Provide proper irrigation.",
+            "Apply mulch."
+        ],
+        "steps_mr": [
+            "माती आम्लीय ठेवा.",
+            "योग्य सिंचन करा.",
+            "मल्च वापरा."
+        ],
+        "organic_en": [
+            "Use pine needle mulch.",
+            "Apply compost tea.",
+            "Add organic peat moss.",
+            "Use biofertilizers."
+        ],
+        "organic_mr": [
+            "पाइन नीडल मल्च वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "सेंद्रिय पीट मॉस वापरा.",
+            "जैवखते वापरा."
+        ]
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+        "title": "Cherry Powdery Mildew",
+        "steps_en": [
+            "Spray sulfur fungicide.",
+            "Improve airflow.",
+            "Avoid overhead watering."
+        ],
+        "steps_mr": [
+            "सल्फर फवारणी करा.",
+            "हवा खेळती ठेवा.",
+            "वरून पाणी देणे टाळा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Use baking soda spray.",
+            "Apply milk spray (1:10 ratio).",
+            "Prune infected parts."
+        ],
+        "organic_mr": [
+            "नीम तेल फवारणी करा.",
+            "बेकिंग सोडा द्रावण वापरा.",
+            "दूध द्रावण फवारणी करा.",
+            "संक्रमित भाग कापा."
+        ]
+    },
+    "Cherry_(including_sour)___healthy": {
+        "title": "Healthy Cherry Plant",
+        "steps_en": [
+            "Prune properly.",
+            "Apply seasonal fertilizer.",
+            "Inspect leaves."
+        ],
+        "steps_mr": [
+            "योग्य छाटणी करा.",
+            "हंगामी खत द्या.",
+            "पाने तपासा."
+        ],
+        "organic_en": [
+            "Apply compost.",
+            "Use organic manure.",
+            "Spray seaweed extract.",
+            "Mulch regularly."
+        ],
+        "organic_mr": [
+            "कंपोस्ट वापरा.",
+            "सेंद्रिय खत वापरा.",
+            "समुद्री शैवाल अर्क वापरा.",
+            "मल्च करा."
+        ]
+    },
+    "Apple___Apple_scab_duplicate_2": {
+        "title": "Apple Scab",
+        "steps_en": [
+            "Remove infected leaves.",
+            "Apply captan or myclobutanil fungicide.",
+            "Improve air circulation."
+        ],
+        "steps_mr": [
+            "संक्रमित पाने काढा.",
+            "कॅप्टन किंवा मायकोब्युटानिल फवारणी करा.",
+            "हवा खेळती ठेवा."
+        ],
+        "organic_en": [
+            "Spray neem oil weekly.",
+            "Use baking soda solution (1 tsp per liter).",
+            "Apply compost tea spray.",
+            "Destroy fallen infected leaves."
+        ],
+        "organic_mr": [
+            "दर आठवड्याला नीम तेल फवारणी करा.",
+            "बेकिंग सोडा द्रावण वापरा.",
+            "कंपोस्ट चहा फवारणी करा.",
+            "संक्रमित पाने नष्ट करा."
+        ]
+    },
+    "Apple___Black_rot_duplicate_2": {
+        "title": "Apple Black Rot",
+        "steps_en": [
+            "Prune infected branches.",
+            "Remove mummified fruits.",
+            "Apply fungicide early season."
+        ],
+        "steps_mr": [
+            "संक्रमित फांद्या कापा.",
+            "सुकलेली फळे काढा.",
+            "हंगामाच्या सुरुवातीला फवारणी करा."
+        ],
+        "organic_en": [
+            "Spray Bordeaux mixture.",
+            "Apply neem oil.",
+            "Remove infected fruits immediately.",
+            "Use Trichoderma bio-fungicide."
+        ],
+        "organic_mr": [
+            "बोर्डो मिश्रण फवारणी करा.",
+            "नीम तेल वापरा.",
+            "संक्रमित फळे काढा.",
+            "ट्रायकोडर्मा जैव-फंगीसाइड वापरा."
+        ]
+    },
+    "Apple___Cedar_apple_rust_duplicate_2": {
+        "title": "Cedar Apple Rust",
+        "steps_en": [
+            "Apply sulfur fungicide.",
+            "Remove nearby cedar plants.",
+            "Monitor during wet weather."
+        ],
+        "steps_mr": [
+            "सल्फर फवारणी करा.",
+            "जवळील सीडर झाडे काढा.",
+            "ओलसर हवामानात तपासा."
+        ],
+        "organic_en": [
+            "Spray organic sulfur.",
+            "Use neem oil spray.",
+            "Remove infected leaves early.",
+            "Maintain spacing."
+        ],
+        "organic_mr": [
+            "सेंद्रिय सल्फर फवारणी करा.",
+            "नीम तेल फवारणी करा.",
+            "संक्रमित पाने काढा.",
+            "योग्य अंतर ठेवा."
+        ]
+    },
+    "Apple___healthy_duplicate_2": {
+        "title": "Healthy Apple Plant",
+        "steps_en": [
+            "Maintain regular watering.",
+            "Apply balanced fertilizer.",
+            "Monitor regularly."
+        ],
+        "steps_mr": [
+            "नियमित पाणी द्या.",
+            "संतुलित खत द्या.",
+            "नियमित तपासा."
+        ],
+        "organic_en": [
+            "Apply vermicompost.",
+            "Use cow dung manure.",
+            "Mulch with dry leaves.",
+            "Spray panchagavya monthly."
+        ],
+        "organic_mr": [
+            "वर्मी कंपोस्ट वापरा.",
+            "शेणखत वापरा.",
+            "मल्च करा.",
+            "पंचगव्य फवारणी करा."
+        ]
+    },
+    "Blueberry___healthy_duplicate_2": {
+        "title": "Healthy Blueberry Plant",
+        "steps_en": [
+            "Maintain acidic soil.",
+            "Provide proper irrigation.",
+            "Apply mulch."
+        ],
+        "steps_mr": [
+            "माती आम्लीय ठेवा.",
+            "योग्य सिंचन करा.",
+            "मल्च वापरा."
+        ],
+        "organic_en": [
+            "Use pine needle mulch.",
+            "Apply compost tea.",
+            "Add organic peat moss.",
+            "Use biofertilizers."
+        ],
+        "organic_mr": [
+            "पाइन नीडल मल्च वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "सेंद्रिय पीट मॉस वापरा.",
+            "जैवखते वापरा."
+        ]
+    },
+    "Cherry_(including_sour)___Powdery_mildew_duplicate_2": {
+        "title": "Cherry Powdery Mildew",
+        "steps_en": [
+            "Spray sulfur fungicide.",
+            "Improve airflow.",
+            "Avoid overhead watering."
+        ],
+        "steps_mr": [
+            "सल्फर फवारणी करा.",
+            "हवा खेळती ठेवा.",
+            "वरून पाणी देणे टाळा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Use baking soda spray.",
+            "Apply milk spray (1:10 ratio).",
+            "Prune infected parts."
+        ],
+        "organic_mr": [
+            "नीम तेल फवारणी करा.",
+            "बेकिंग सोडा द्रावण वापरा.",
+            "दूध द्रावण फवारणी करा.",
+            "संक्रमित भाग कापा."
+        ]
+    },
+    "Cherry_(including_sour)___healthy_duplicate_2": {
+        "title": "Healthy Cherry Plant",
+        "steps_en": [
+            "Prune properly.",
+            "Apply seasonal fertilizer.",
+            "Inspect leaves."
+        ],
+        "steps_mr": [
+            "योग्य छाटणी करा.",
+            "हंगामी खत द्या.",
+            "पाने तपासा."
+        ],
+        "organic_en": [
+            "Apply compost.",
+            "Use organic manure.",
+            "Spray seaweed extract.",
+            "Mulch regularly."
+        ],
+        "organic_mr": [
+            "कंपोस्ट वापरा.",
+            "सेंद्रिय खत वापरा.",
+            "समुद्री शैवाल अर्क वापरा.",
+            "मल्च करा."
+        ]
+    },
+    "Tomato___Late_blight": {
+        "title": "Tomato Late Blight",
+        "steps_en": [
+            "Apply systemic fungicide.",
+            "Remove infected plants.",
+            "Improve drainage."
+        ],
+        "steps_mr": [
+            "सिस्टेमिक फंगीसाइड वापरा.",
+            "संक्रमित झाडे काढा.",
+            "निचरा सुधारा."
+        ],
+        "organic_en": [
+            "Spray copper fungicide (organic).",
+            "Use neem oil spray.",
+            "Apply Trichoderma.",
+            "Remove infected plants immediately."
+        ],
+        "organic_mr": [
+            "सेंद्रिय कॉपर फवारणी करा.",
+            "नीम तेल वापरा.",
+            "ट्रायकोडर्मा वापरा.",
+            "संक्रमित झाडे लगेच काढा."
+        ]
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+        "title": "Tomato Spider Mites",
+        "steps_en": [
+            "Spray neem oil.",
+            "Increase humidity.",
+            "Use insecticidal soap."
+        ],
+        "steps_mr": [
+            "नीम तेल फवारणी करा.",
+            "आर्द्रता वाढवा.",
+            "कीटकनाशक साबण वापरा."
+        ],
+        "organic_en": [
+            "Spray neem oil every 5 days.",
+            "Use garlic-chili extract spray.",
+            "Release ladybugs.",
+            "Wash leaves with water."
+        ],
+        "organic_mr": [
+            "दर ५ दिवसांनी नीम तेल फवारणी करा.",
+            "लसूण-मिरची अर्क वापरा.",
+            "लेडीबग कीटक सोडा.",
+            "पाने पाण्याने धुवा."
+        ]
+    },
+    "Tomato___healthy": {
+        "title": "Healthy Tomato Plant",
+        "steps_en": [
+            "Maintain watering schedule.",
+            "Apply balanced fertilizer.",
+            "Monitor regularly."
+        ],
+        "steps_mr": [
+            "नियमित पाणी द्या.",
+            "संतुलित खत द्या.",
+            "नियमित तपासा."
+        ],
+        "organic_en": [
+            "Apply vermicompost.",
+            "Use fish amino acid.",
+            "Mulch soil.",
+            "Spray jeevamrut monthly."
+        ],
+        "organic_mr": [
+            "वर्मी कंपोस्ट वापरा.",
+            "फिश अमिनो अॅसिड वापरा.",
+            "मल्च करा.",
+            "जीवामृत फवारणी करा."
+        ]
+    },
+    "Apple___Apple_scab_duplicate_3": {
+        "title": "Apple Scab",
+        "steps_en": [
+            "Remove infected leaves.",
+            "Apply captan or myclobutanil fungicide.",
+            "Improve air circulation."
+        ],
+        "steps_mr": [
+            "संक्रमित पाने काढा.",
+            "कॅप्टन किंवा मायकोब्युटानिल फवारणी करा.",
+            "हवा खेळती ठेवा."
+        ],
+        "organic_en": [
+            "Spray neem oil weekly.",
+            "Use baking soda solution (1 tsp per liter).",
+            "Apply compost tea.",
+            "Destroy fallen leaves."
+        ],
+        "organic_mr": [
+            "दर आठवड्याला नीम तेल फवारणी करा.",
+            "बेकिंग सोडा द्रावण वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "संक्रमित पाने नष्ट करा."
+        ]
+    },
+    "Apple___Black_rot_duplicate_3": {
+        "title": "Apple Black Rot",
+        "steps_en": [
+            "Prune infected branches.",
+            "Remove mummified fruits.",
+            "Apply fungicide early season."
+        ],
+        "steps_mr": [
+            "संक्रमित फांद्या कापा.",
+            "सुकलेली फळे काढा.",
+            "हंगामाच्या सुरुवातीला फवारणी करा."
+        ],
+        "organic_en": [
+            "Spray Bordeaux mixture.",
+            "Apply neem oil.",
+            "Use Trichoderma.",
+            "Remove infected fruits."
+        ],
+        "organic_mr": [
+            "बोर्डो मिश्रण फवारणी करा.",
+            "नीम तेल वापरा.",
+            "ट्रायकोडर्मा वापरा.",
+            "संक्रमित फळे काढा."
+        ]
+    },
+    "Apple___Cedar_apple_rust_duplicate_3": {
+        "title": "Cedar Apple Rust",
+        "steps_en": [
+            "Apply sulfur fungicide.",
+            "Remove nearby cedar plants.",
+            "Monitor during wet weather."
+        ],
+        "steps_mr": [
+            "सल्फर फवारणी करा.",
+            "जवळील सीडर झाडे काढा.",
+            "ओलसर हवामानात तपासा."
+        ],
+        "organic_en": [
+            "Use organic sulfur.",
+            "Spray neem oil.",
+            "Remove infected leaves.",
+            "Maintain spacing."
+        ],
+        "organic_mr": [
+            "सेंद्रिय सल्फर वापरा.",
+            "नीम तेल फवारणी करा.",
+            "संक्रमित पाने काढा.",
+            "योग्य अंतर ठेवा."
+        ]
+    },
+    "Apple___healthy_duplicate_3": {
+        "title": "Healthy Apple Plant",
+        "steps_en": [
+            "Maintain regular watering.",
+            "Apply balanced fertilizer.",
+            "Monitor regularly."
+        ],
+        "steps_mr": [
+            "नियमित पाणी द्या.",
+            "संतुलित खत द्या.",
+            "नियमित तपासा."
+        ],
+        "organic_en": [
+            "Apply vermicompost.",
+            "Use cow dung manure.",
+            "Mulch soil.",
+            "Spray panchagavya monthly."
+        ],
+        "organic_mr": [
+            "वर्मी कंपोस्ट वापरा.",
+            "शेणखत वापरा.",
+            "मल्च करा.",
+            "पंचगव्य फवारणी करा."
+        ]
+    },
+    "Blueberry___healthy_duplicate_3": {
+        "title": "Healthy Blueberry Plant",
+        "steps_en": [
+            "Maintain acidic soil.",
+            "Provide proper irrigation.",
+            "Apply mulch."
+        ],
+        "steps_mr": [
+            "माती आम्लीय ठेवा.",
+            "योग्य सिंचन करा.",
+            "मल्च वापरा."
+        ],
+        "organic_en": [
+            "Use pine needle mulch.",
+            "Apply compost tea.",
+            "Use biofertilizers.",
+            "Add peat moss."
+        ],
+        "organic_mr": [
+            "पाइन नीडल मल्च वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "जैवखते वापरा.",
+            "पीट मॉस वापरा."
+        ]
+    },
+    "Cherry_(including_sour)___Powdery_mildew_duplicate_3": {
+        "title": "Cherry Powdery Mildew",
+        "steps_en": [
+            "Spray sulfur fungicide.",
+            "Improve airflow.",
+            "Avoid overhead watering."
+        ],
+        "steps_mr": [
+            "सल्फर फवारणी करा.",
+            "हवा खेळती ठेवा.",
+            "वरून पाणी देणे टाळा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Use baking soda spray.",
+            "Apply milk spray (1:10).",
+            "Prune infected parts."
+        ],
+        "organic_mr": [
+            "नीम तेल फवारणी करा.",
+            "बेकिंग सोडा द्रावण वापरा.",
+            "दूध द्रावण फवारणी करा.",
+            "संक्रमित भाग कापा."
+        ]
+    },
+    "Cherry_(including_sour)___healthy_duplicate_3": {
+        "title": "Healthy Cherry Plant",
+        "steps_en": [
+            "Prune properly.",
+            "Apply seasonal fertilizer.",
+            "Inspect leaves."
+        ],
+        "steps_mr": [
+            "योग्य छाटणी करा.",
+            "हंगामी खत द्या.",
+            "पाने तपासा."
+        ],
+        "organic_en": [
+            "Apply compost.",
+            "Use organic manure.",
+            "Spray seaweed extract.",
+            "Mulch regularly."
+        ],
+        "organic_mr": [
+            "कंपोस्ट वापरा.",
+            "सेंद्रिय खत वापरा.",
+            "समुद्री शैवाल अर्क वापरा.",
+            "मल्च करा."
+        ]
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+        "title": "Gray Leaf Spot",
+        "steps_en": [
+            "Use resistant varieties.",
+            "Apply strobilurin fungicide.",
+            "Rotate crops."
+        ],
+        "steps_mr": [
+            "प्रतिरोधक वाण वापरा.",
+            "फंगीसाइड फवारणी करा.",
+            "पीक फेरपालट करा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Apply compost tea.",
+            "Use Trichoderma.",
+            "Practice crop rotation."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "ट्रायकोडर्मा वापरा.",
+            "पीक फेरपालट करा."
+        ]
+    },
+    "Corn_(maize)___Common_rust_": {
+        "title": "Corn Common Rust",
+        "steps_en": [
+            "Use resistant hybrids.",
+            "Apply fungicide if severe.",
+            "Monitor humidity."
+        ],
+        "steps_mr": [
+            "प्रतिरोधक वाण वापरा.",
+            "आवश्यक असल्यास फवारणी करा.",
+            "आर्द्रता तपासा."
+        ],
+        "organic_en": [
+            "Use neem oil spray.",
+            "Apply sulfur dust.",
+            "Improve airflow.",
+            "Rotate crops."
+        ],
+        "organic_mr": [
+            "नीम तेल फवारणी करा.",
+            "सल्फर धूळ वापरा.",
+            "हवा खेळती ठेवा.",
+            "पीक फेरपालट करा."
+        ]
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+        "title": "Northern Leaf Blight",
+        "steps_en": [
+            "Remove infected debris.",
+            "Apply fungicide.",
+            "Practice crop rotation."
+        ],
+        "steps_mr": [
+            "संक्रमित अवशेष काढा.",
+            "फंगीसाइड वापरा.",
+            "पीक फेरपालट करा."
+        ],
+        "organic_en": [
+            "Use neem oil.",
+            "Apply compost tea.",
+            "Remove debris.",
+            "Use biofungicides."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "अवशेष काढा.",
+            "जैव फंगीसाइड वापरा."
+        ]
+    },
+    "Corn_(maize)___healthy": {
+        "title": "Healthy Corn Plant",
+        "steps_en": [
+            "Maintain nitrogen levels.",
+            "Irrigate properly.",
+            "Inspect regularly."
+        ],
+        "steps_mr": [
+            "नायट्रोजन संतुलित ठेवा.",
+            "योग्य सिंचन करा.",
+            "नियमित तपासा."
+        ],
+        "organic_en": [
+            "Apply farmyard manure.",
+            "Use jeevamrut.",
+            "Mulch soil.",
+            "Apply biofertilizers."
+        ],
+        "organic_mr": [
+            "शेणखत वापरा.",
+            "जीवामृत वापरा.",
+            "मल्च करा.",
+            "जैवखते वापरा."
+        ]
+    },
+    "Grape___Black_rot": {
+        "title": "Grape Black Rot",
+        "steps_en": [
+            "Remove infected grapes.",
+            "Spray fungicide.",
+            "Improve airflow."
+        ],
+        "steps_mr": [
+            "संक्रमित द्राक्षे काढा.",
+            "फंगीसाइड फवारणी करा.",
+            "हवा खेळती ठेवा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Use Bordeaux mixture.",
+            "Remove infected bunches.",
+            "Apply Trichoderma."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "बोर्डो मिश्रण वापरा.",
+            "संक्रमित घड काढा.",
+            "ट्रायकोडर्मा वापरा."
+        ]
+    },
+    "Grape___Esca_(Black_Measles)": {
+        "title": "Grape Esca",
+        "steps_en": [
+            "Prune infected vines.",
+            "Avoid water stress.",
+            "Apply preventive fungicide."
+        ],
+        "steps_mr": [
+            "संक्रमित वेल कापा.",
+            "पाण्याचा ताण टाळा.",
+            "प्रतिबंधक फवारणी करा."
+        ],
+        "organic_en": [
+            "Remove infected wood.",
+            "Apply neem oil.",
+            "Improve drainage.",
+            "Use compost tea."
+        ],
+        "organic_mr": [
+            "संक्रमित लाकूड काढा.",
+            "नीम तेल वापरा.",
+            "निचरा सुधारा.",
+            "कंपोस्ट चहा वापरा."
+        ]
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+        "title": "Grape Leaf Blight",
+        "steps_en": [
+            "Apply copper fungicide.",
+            "Remove infected leaves.",
+            "Avoid overhead watering."
+        ],
+        "steps_mr": [
+            "कॉपर फवारणी करा.",
+            "संक्रमित पाने काढा.",
+            "वरून पाणी देऊ नका."
+        ],
+        "organic_en": [
+            "Use organic copper.",
+            "Spray neem oil.",
+            "Remove infected leaves.",
+            "Increase spacing."
+        ],
+        "organic_mr": [
+            "सेंद्रिय कॉपर वापरा.",
+            "नीम तेल फवारणी करा.",
+            "संक्रमित पाने काढा.",
+            "अंतर वाढवा."
+        ]
+    },
+    "Grape___healthy": {
+        "title": "Healthy Grape Vine",
+        "steps_en": [
+            "Maintain pruning schedule.",
+            "Apply fertilizers.",
+            "Ensure sunlight."
+        ],
+        "steps_mr": [
+            "छाटणी करा.",
+            "खत द्या.",
+            "सूर्यप्रकाश द्या."
+        ],
+        "organic_en": [
+            "Apply compost.",
+            "Use vermicompost.",
+            "Mulch soil.",
+            "Spray seaweed extract."
+        ],
+        "organic_mr": [
+            "कंपोस्ट वापरा.",
+            "वर्मी कंपोस्ट वापरा.",
+            "मल्च करा.",
+            "समुद्री शैवाल अर्क वापरा."
+        ]
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
+        "title": "Citrus Greening",
+        "steps_en": [
+            "Remove infected trees.",
+            "Control psyllids.",
+            "Use certified seedlings."
+        ],
+        "steps_mr": [
+            "संक्रमित झाडे काढा.",
+            "सायलिड कीड नियंत्रण करा.",
+            "प्रमाणित रोपे वापरा."
+        ],
+        "organic_en": [
+            "Spray neem oil for psyllids.",
+            "Use sticky traps.",
+            "Remove infected trees.",
+            "Encourage natural predators."
+        ],
+        "organic_mr": [
+            "सायलिडसाठी नीम तेल वापरा.",
+            "स्टिकी ट्रॅप वापरा.",
+            "संक्रमित झाडे काढा.",
+            "नैसर्गिक शत्रू वाढवा."
+        ]
+    },
+    "Peach___Bacterial_spot": {
+        "title": "Peach Bacterial Spot",
+        "steps_en": [
+            "Apply copper spray.",
+            "Prune infected branches.",
+            "Avoid overhead watering."
+        ],
+        "steps_mr": [
+            "कॉपर फवारणी करा.",
+            "संक्रमित फांद्या कापा.",
+            "वरून पाणी टाळा."
+        ],
+        "organic_en": [
+            "Use organic copper.",
+            "Spray neem oil.",
+            "Remove infected leaves.",
+            "Improve airflow."
+        ],
+        "organic_mr": [
+            "सेंद्रिय कॉपर वापरा.",
+            "नीम तेल वापरा.",
+            "संक्रमित पाने काढा.",
+            "हवा खेळती ठेवा."
+        ]
+    },
+    "Peach___healthy": {
+        "title": "Healthy Peach Plant",
+        "steps_en": [
+            "Maintain drainage.",
+            "Apply seasonal fertilizers.",
+            "Inspect fruits."
+        ],
+        "steps_mr": [
+            "निचरा ठेवा.",
+            "खत द्या.",
+            "फळे तपासा."
+        ],
+        "organic_en": [
+            "Apply compost.",
+            "Use biofertilizers.",
+            "Mulch soil.",
+            "Spray panchagavya."
+        ],
+        "organic_mr": [
+            "कंपोस्ट वापरा.",
+            "जैवखते वापरा.",
+            "मल्च करा.",
+            "पंचगव्य फवारणी करा."
+        ]
+    },
+    "Pepper,_bell___Bacterial_spot": {
+        "title": "Bell Pepper Bacterial Spot",
+        "steps_en": [
+            "Use certified seeds.",
+            "Apply copper fungicide.",
+            "Remove infected plants."
+        ],
+        "steps_mr": [
+            "प्रमाणित बियाणे वापरा.",
+            "कॉपर फवारणी करा.",
+            "संक्रमित झाडे काढा."
+        ],
+        "organic_en": [
+            "Use organic copper.",
+            "Spray neem oil.",
+            "Remove infected plants.",
+            "Improve drainage."
+        ],
+        "organic_mr": [
+            "सेंद्रिय कॉपर वापरा.",
+            "नीम तेल फवारणी करा.",
+            "संक्रमित झाडे काढा.",
+            "निचरा सुधारा."
+        ]
+    },
+    "Pepper,_bell___healthy": {
+        "title": "Healthy Pepper Plant",
+        "steps_en": [
+            "Provide sunlight.",
+            "Maintain irrigation.",
+            "Use balanced fertilizer."
+        ],
+        "steps_mr": [
+            "सूर्यप्रकाश द्या.",
+            "सिंचन करा.",
+            "संतुलित खत द्या."
+        ],
+        "organic_en": [
+            "Apply vermicompost.",
+            "Use fish amino acid.",
+            "Mulch soil.",
+            "Spray jeevamrut."
+        ],
+        "organic_mr": [
+            "वर्मी कंपोस्ट वापरा.",
+            "फिश अमिनो अॅसिड वापरा.",
+            "मल्च करा.",
+            "जीवामृत वापरा."
+        ]
+    },
+    "Potato___Early_blight": {
+        "title": "Potato Early Blight",
+        "steps_en": [
+            "Apply chlorothalonil.",
+            "Remove infected leaves.",
+            "Rotate crops."
+        ],
+        "steps_mr": [
+            "क्लोरोथॅलोनील फवारणी करा.",
+            "संक्रमित पाने काढा.",
+            "पीक फेरपालट करा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Use compost tea.",
+            "Apply Trichoderma.",
+            "Remove infected leaves."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "ट्रायकोडर्मा वापरा.",
+            "संक्रमित पाने काढा."
+        ]
+    },
+    "Potato___Late_blight": {
+        "title": "Potato Late Blight",
+        "steps_en": [
+            "Use certified seed.",
+            "Apply systemic fungicide.",
+            "Destroy infected plants."
+        ],
+        "steps_mr": [
+            "प्रमाणित बियाणे वापरा.",
+            "सिस्टेमिक फंगीसाइड वापरा.",
+            "संक्रमित झाडे नष्ट करा."
+        ],
+        "organic_en": [
+            "Use organic copper.",
+            "Spray neem oil.",
+            "Remove infected plants.",
+            "Improve drainage."
+        ],
+        "organic_mr": [
+            "सेंद्रिय कॉपर वापरा.",
+            "नीम तेल वापरा.",
+            "संक्रमित झाडे काढा.",
+            "निचरा सुधारा."
+        ]
+    },
+    "Potato___healthy": {
+        "title": "Healthy Potato Plant",
+        "steps_en": [
+            "Maintain spacing.",
+            "Water at base.",
+            "Apply compost."
+        ],
+        "steps_mr": [
+            "अंतर ठेवा.",
+            "मुळाशी पाणी द्या.",
+            "सेंद्रिय खत वापरा."
+        ],
+        "organic_en": [
+            "Apply farmyard manure.",
+            "Use biofertilizers.",
+            "Mulch soil.",
+            "Spray seaweed extract."
+        ],
+        "organic_mr": [
+            "शेणखत वापरा.",
+            "जैवखते वापरा.",
+            "मल्च करा.",
+            "समुद्री शैवाल अर्क वापरा."
+        ]
+    },
+    "Raspberry___healthy": {
+        "title": "Healthy Raspberry Plant",
+        "steps_en": [
+            "Prune old canes.",
+            "Maintain airflow.",
+            "Apply mulch."
+        ],
+        "steps_mr": [
+            "जुनी फांदी कापा.",
+            "हवा खेळती ठेवा.",
+            "मल्च वापरा."
+        ],
+        "organic_en": [
+            "Apply compost.",
+            "Use organic manure.",
+            "Mulch regularly.",
+            "Spray compost tea."
+        ],
+        "organic_mr": [
+            "कंपोस्ट वापरा.",
+            "सेंद्रिय खत वापरा.",
+            "मल्च करा.",
+            "कंपोस्ट चहा वापरा."
+        ]
+    },
+    "Soybean___healthy": {
+        "title": "Healthy Soybean Plant",
+        "steps_en": [
+            "Ensure drainage.",
+            "Apply inoculants.",
+            "Inspect pests."
+        ],
+        "steps_mr": [
+            "निचरा ठेवा.",
+            "जीवाणू इनोक्युलंट वापरा.",
+            "कीड तपासा."
+        ],
+        "organic_en": [
+            "Use Rhizobium culture.",
+            "Apply compost.",
+            "Use neem cake.",
+            "Spray jeevamrut."
+        ],
+        "organic_mr": [
+            "रायझोबियम वापरा.",
+            "कंपोस्ट वापरा.",
+            "नीम केक वापरा.",
+            "जीवामृत फवारणी करा."
+        ]
+    },
+    "Squash___Powdery_mildew": {
+        "title": "Squash Powdery Mildew",
+        "steps_en": [
+            "Spray sulfur.",
+            "Remove infected leaves.",
+            "Avoid leaf wetting."
+        ],
+        "steps_mr": [
+            "सल्फर फवारणी करा.",
+            "संक्रमित पाने काढा.",
+            "पाने ओले करू नका."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Use baking soda solution.",
+            "Apply milk spray.",
+            "Improve airflow."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "बेकिंग सोडा वापरा.",
+            "दूध द्रावण वापरा.",
+            "हवा खेळती ठेवा."
+        ]
+    },
+    "Strawberry___Leaf_scorch": {
+        "title": "Strawberry Leaf Scorch",
+        "steps_en": [
+            "Remove infected foliage.",
+            "Improve drainage.",
+            "Apply fungicide."
+        ],
+        "steps_mr": [
+            "संक्रमित पाने काढा.",
+            "निचरा सुधारा.",
+            "फंगीसाइड वापरा."
+        ],
+        "organic_en": [
+            "Use neem oil spray.",
+            "Apply compost tea.",
+            "Remove infected leaves.",
+            "Improve airflow."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "संक्रमित पाने काढा.",
+            "हवा खेळती ठेवा."
+        ]
+    },
+    "Strawberry___healthy": {
+        "title": "Healthy Strawberry Plant",
+        "steps_en": [
+            "Maintain mulch.",
+            "Water regularly.",
+            "Apply nutrients."
+        ],
+        "steps_mr": [
+            "मल्च ठेवा.",
+            "नियमित पाणी द्या.",
+            "पोषक द्या."
+        ],
+        "organic_en": [
+            "Apply compost.",
+            "Use vermicompost.",
+            "Mulch soil.",
+            "Spray seaweed extract."
+        ],
+        "organic_mr": [
+            "कंपोस्ट वापरा.",
+            "वर्मी कंपोस्ट वापरा.",
+            "मल्च करा.",
+            "समुद्री शैवाल अर्क वापरा."
+        ]
+    },
+    "Tomato___Bacterial_spot": {
+        "title": "Tomato Bacterial Spot",
+        "steps_en": [
+            "Use disease-free seeds.",
+            "Apply copper spray.",
+            "Avoid overhead irrigation."
+        ],
+        "steps_mr": [
+            "रोगमुक्त बियाणे वापरा.",
+            "कॉपर फवारणी करा.",
+            "वरून पाणी देऊ नका."
+        ],
+        "organic_en": [
+            "Use organic copper.",
+            "Spray neem oil.",
+            "Remove infected leaves.",
+            "Improve airflow."
+        ],
+        "organic_mr": [
+            "सेंद्रिय कॉपर वापरा.",
+            "नीम तेल वापरा.",
+            "संक्रमित पाने काढा.",
+            "हवा खेळती ठेवा."
+        ]
+    },
+    "Tomato___Early_blight": {
+        "title": "Tomato Early Blight",
+        "steps_en": [
+            "Remove infected leaves.",
+            "Apply fungicide.",
+            "Rotate crops."
+        ],
+        "steps_mr": [
+            "संक्रमित पाने काढा.",
+            "फंगीसाइड वापरा.",
+            "पीक फेरपालट करा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Apply compost tea.",
+            "Use Trichoderma.",
+            "Remove infected leaves."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "ट्रायकोडर्मा वापरा.",
+            "संक्रमित पाने काढा."
+        ]
+    },
+    "Tomato___Late_blight_duplicate_2": {
+        "title": "Tomato Late Blight",
+        "steps_en": [
+            "Apply systemic fungicide.",
+            "Remove infected plants.",
+            "Improve drainage."
+        ],
+        "steps_mr": [
+            "सिस्टेमिक फंगीसाइड वापरा.",
+            "संक्रमित झाडे काढा.",
+            "निचरा सुधारा."
+        ],
+        "organic_en": [
+            "Use organic copper.",
+            "Spray neem oil.",
+            "Remove infected plants.",
+            "Improve drainage."
+        ],
+        "organic_mr": [
+            "सेंद्रिय कॉपर वापरा.",
+            "नीम तेल वापरा.",
+            "संक्रमित झाडे काढा.",
+            "निचरा सुधारा."
+        ]
+    },
+    "Tomato___Leaf_Mold": {
+        "title": "Tomato Leaf Mold",
+        "steps_en": [
+            "Reduce humidity.",
+            "Apply fungicide.",
+            "Increase spacing."
+        ],
+        "steps_mr": [
+            "आर्द्रता कमी करा.",
+            "फंगीसाइड वापरा.",
+            "अंतर वाढवा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Use baking soda spray.",
+            "Improve ventilation.",
+            "Remove infected leaves."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "बेकिंग सोडा वापरा.",
+            "हवा खेळती ठेवा.",
+            "संक्रमित पाने काढा."
+        ]
+    },
+    "Tomato___Septoria_leaf_spot": {
+        "title": "Tomato Septoria Leaf Spot",
+        "steps_en": [
+            "Remove infected leaves.",
+            "Spray Mancozeb.",
+            "Avoid overhead watering."
+        ],
+        "steps_mr": [
+            "संक्रमित पाने काढा.",
+            "मॅन्कोझेब फवारणी करा.",
+            "वरून पाणी देऊ नका."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Use compost tea.",
+            "Apply Trichoderma.",
+            "Remove infected leaves."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "ट्रायकोडर्मा वापरा.",
+            "संक्रमित पाने काढा."
+        ]
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite_duplicate_2": {
+        "title": "Tomato Spider Mites",
+        "steps_en": [
+            "Spray neem oil.",
+            "Increase humidity.",
+            "Use insecticidal soap."
+        ],
+        "steps_mr": [
+            "नीम तेल फवारणी करा.",
+            "आर्द्रता वाढवा.",
+            "कीटकनाशक साबण वापरा."
+        ],
+        "organic_en": [
+            "Spray neem oil every 5 days.",
+            "Use garlic-chili extract.",
+            "Release ladybugs.",
+            "Wash leaves with water."
+        ],
+        "organic_mr": [
+            "दर ५ दिवसांनी नीम तेल फवारणी करा.",
+            "लसूण-मिरची अर्क वापरा.",
+            "लेडीबग सोडा.",
+            "पाने धुवा."
+        ]
+    },
+    "Tomato___Target_Spot": {
+        "title": "Tomato Target Spot",
+        "steps_en": [
+            "Remove infected debris.",
+            "Apply fungicide.",
+            "Ensure ventilation."
+        ],
+        "steps_mr": [
+            "संक्रमित अवशेष काढा.",
+            "फंगीसाइड वापरा.",
+            "हवा खेळती ठेवा."
+        ],
+        "organic_en": [
+            "Spray neem oil.",
+            "Apply compost tea.",
+            "Remove debris.",
+            "Increase spacing."
+        ],
+        "organic_mr": [
+            "नीम तेल वापरा.",
+            "कंपोस्ट चहा वापरा.",
+            "अवशेष काढा.",
+            "अंतर वाढवा."
+        ]
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+        "title": "Tomato Yellow Leaf Curl Virus",
+        "steps_en": [
+            "Control whiteflies.",
+            "Remove infected plants.",
+            "Use resistant varieties."
+        ],
+        "steps_mr": [
+            "व्हाइटफ्लाय नियंत्रण करा.",
+            "संक्रमित झाडे काढा.",
+            "प्रतिरोधक वाण वापरा."
+        ],
+        "organic_en": [
+            "Spray neem oil for whiteflies.",
+            "Use sticky traps.",
+            "Remove infected plants.",
+            "Encourage natural predators."
+        ],
+        "organic_mr": [
+            "व्हाइटफ्लायसाठी नीम तेल वापरा.",
+            "स्टिकी ट्रॅप वापरा.",
+            "संक्रमित झाडे काढा.",
+            "नैसर्गिक शत्रू वाढवा."
+        ]
+    },
+    "Tomato___Tomato_mosaic_virus": {
+        "title": "Tomato Mosaic Virus",
+        "steps_en": [
+            "Remove infected plants.",
+            "Disinfect tools.",
+            "Avoid tobacco contact."
+        ],
+        "steps_mr": [
+            "संक्रमित झाडे काढा.",
+            "साधने निर्जंतुक करा.",
+            "तंबाखू संपर्क टाळा."
+        ],
+        "organic_en": [
+            "Remove infected plants.",
+            "Use neem oil spray.",
+            "Disinfect tools with vinegar.",
+            "Improve plant immunity using compost."
+        ],
+        "organic_mr": [
+            "संक्रमित झाडे काढा.",
+            "नीम तेल वापरा.",
+            "व्हिनेगरने साधने स्वच्छ करा.",
+            "कंपोस्ट वापरून प्रतिकारशक्ती वाढवा."
+        ]
+    },
+    "Tomato___healthy_duplicate_2": {
+        "title": "Healthy Tomato Plant",
+        "steps_en": [
+            "Maintain watering schedule.",
+            "Apply balanced fertilizer.",
+            "Monitor regularly."
+        ],
+        "steps_mr": [
+            "नियमित पाणी द्या.",
+            "संतुलित खत द्या.",
+            "नियमित तपासा."
+        ],
+        "organic_en": [
+            "Apply vermicompost.",
+            "Use fish amino acid.",
+            "Mulch soil.",
+            "Spray jeevamrut monthly."
+        ],
+        "organic_mr": [
+            "वर्मी कंपोस्ट वापरा.",
+            "फिश अमिनो अॅसिड वापरा.",
+            "मल्च करा.",
+            "जीवामृत फवारणी करा."
+        ]
+    }
 }

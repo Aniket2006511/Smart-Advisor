@@ -18,6 +18,8 @@
         margin-bottom: 10px;
       }
     </style>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Khand:wght@500&family=Poppins:wght@300;500&display=swap"
       rel="stylesheet"
@@ -57,10 +59,12 @@
         </div>
         <div class="top-controls">
           <div class="weather-card" id="weather-info">
-            ☀️ आजचे हवामान: ३२°C | फवारणीसाठी योग्य वेळ!
+            🌤 हवामान तपासत आहे...
           </div>
           <div class="mode-switch">
-            <label for="darkModeToggle">🌙 <input type="checkbox" id="darkModeToggle" /> Dark Mode</label>
+            <label for="darkModeToggle"
+              >🌙 <input type="checkbox" id="darkModeToggle" /> Dark Mode</label
+            >
           </div>
         </div>
 
@@ -97,32 +101,33 @@
 
       <section class="card upload-section">
         <h2>🔍 रोग तपासणी (फोटो अपलोड)</h2>
-       <div class="upload-box">
-  <label for="imageInput">Select Image:</label>
-  <input type="file" id="imageInput" name="image" />
-  <button onclick="analyzeImage()">Analyze</button>
-</div>
+        <div class="upload-box">
+          <label for="imageInput">Select Image:</label>
+          <input
+            type="file"
+            id="imageInput"
+            name="image"
+            accept="image/*"
+            required
+          />
+          <button onclick="analyzeImage()">Analyze</button>
+        </div>
 
-<!-- ✅ ADD TOGGLE HERE -->
-<div class="mode-toggle">
-  <label>
-    <input type="radio" name="mode" value="offline" checked>
-    Offline Mode
-  </label>
+        <!-- ✅ ADD TOGGLE HERE -->
+        <div class="mode-toggle">
+          <label>
+            <input type="radio" name="mode" value="offline" checked />
+            Offline Mode
+          </label>
 
-  <label class="online-mode-label">
-    <input type="radio" name="mode" value="online">
-    Online AI (Gemini)
-  </label>
-</div>
+          <label class="online-mode-label">
+            <input type="radio" name="mode" value="online" />
+            Online AI (Gemini)
+          </label>
+        </div>
+      </section>
 
-</section>
-
-
-      <section
-        id="result-section"
-        class="card result-card hidden"
-      >
+      <section id="result-section" class="card result-card hidden">
         <h2>निदान आणि उपाय</h2>
         <div id="disease-name"></div>
         <div id="remedy-content"></div>
