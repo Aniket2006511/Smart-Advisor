@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Crop Market</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #f1f8f4;
+      }
+
+      header {
+        background: linear-gradient(135deg, #2e7d32, #1b5e20);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .container {
+        padding: 40px;
+      }
+
+      .filter-bar {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      select {
+        padding: 8px;
+        border-radius: 6px;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        text-align: center;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-card img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+
+      .price {
+        color: #388e3c;
+        font-weight: 600;
+        margin: 8px 0;
+      }
+
+      .quantity {
+        width: 60px;
+        padding: 5px;
+      }
+
+      button {
+        margin-top: 8px;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .cart-btn {
+        background: #ff5722;
+        color: white;
+      }
+
+      .amazon-btn {
+        background: #ff9900;
+        color: white;
+      }
+      .flipkart-btn {
+        background: #2874f0;
+        color: white;
+      }
+      .agro-btn {
+        background: #4caf50;
+        color: white;
+      }
+
+      .cart-box {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        width: 250px;
+      }
+
+      .back-btn {
+        display: block;
+        margin: 40px auto;
+        width: fit-content;
+        background: #2e7d32;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>🛒 Smart Crop Market</h1>
+      <p>Advanced Agricultural E-Commerce</p>
+    </header>
+
+    <div class="container">
+      <div class="filter-bar">
+        Filter:
+        <select id="categoryFilter" aria-label="Filter products by category" onchange="filterProducts()">
+          <option value="all">All</option>
+          <option value="fungicide">Fungicide</option>
+          <option value="insecticide">Insecticide</option>
+          <option value="bactericide">Bactericide</option>
+        </select>
+      </div>
+
+      <div class="products" id="productContainer"></div>
+
+      <a href="/" class="back-btn">⬅ Back to Home</a>
+    </div>
+
+    <div class="cart-box">
+      <h4>🛒 Cart</h4>
+      <div id="cartItems"></div>
+      <b>Total: ₹<span id="cartTotal">0</span></b>
+    </div>
+
+    <script>
+
+      // ==========================
+      // CHEMICAL DATABASE
+      // ==========================
+
+      const products = [
+        {name:"Mancozeb 75% WP", category:"fungicide", basePrice:480},
+        {name:"Copper Oxychloride", category:"fungicide", basePrice:520},
+        {name:"Imidacloprid 17.8% SL", category:"insecticide", basePrice:650},
+        {name:"Neem Oil Concentrate", category:"insecticide", basePrice:390},
+        {name:"Streptomycin Sulphate", category:"bactericide", basePrice:720},
+        {name:"Chlorpyrifos 20% EC", category:"insecticide", basePrice:560}
+      ];
+
+      // ==========================
+      // SIMULATED REAL-TIME PRICE API
+      // ==========================
+
+      function getLivePrice(base){
+        return base + Math.floor(Math.random()*150);
+      }
+
+      // ==========================
+      // RENDER PRODUCTS
+      // ==========================
+
+      function renderProducts(){
+        const container=document.getElementById("productContainer");
+        container.innerHTML="";
+
+        products.forEach((p,index)=>{
+
+          const livePrice=getLivePrice(p.basePrice);
+
+          container.innerHTML+=`
+            <div class="product-card" data-category="${p.category}">
+              <img src="https://cdn-icons-png.flaticon.com/512/2909/2909768.png">
+              <h4>${p.name}</h4>
+              <div class="price">₹${livePrice}</div>
+              ⭐⭐⭐⭐☆
+              <br>
+              Qty: <input type="number" min="1" value="1" class="quantity" id="qty${index}">
+              <br>
+              <button class="cart-btn" onclick="addToCart('${p.name}',${livePrice},${index})">Add to Cart</button>
+              <br>
+              <button class="amazon-btn" onclick="openAmazon('${p.name}')">Amazon</button>
+              <button class="flipkart-btn" onclick="openFlipkart('${p.name}')">Flipkart</button>
+              <button class="agro-btn" onclick="openAgro('${p.name}')">Agro Store</button>
+            </div>
+          `;
+        });
+      }
+
+      renderProducts();
+
+      // ==========================
+      // FILTER
+      // ==========================
+
+      function filterProducts(){
+        const val=document.getElementById("categoryFilter").value;
+        document.querySelectorAll(".product-card").forEach(card=>{
+          if(val==="all" || card.dataset.category===val){
+            card.style.display="block";
+          } else {
+            card.style.display="none";
+          }
+        });
+      }
+
+      // ==========================
+      // CART SYSTEM
+      // ==========================
+
+      let cart=[];
+      function addToCart(name, price, index){
+        const qty=parseInt(document.getElementById(`qty${index}`).value);
+        cart.push({name, price, qty});
+        updateCart();
+      }
+
+      function updateCart(){
+        const box=document.getElementById("cartItems");
+        box.innerHTML="";
+        let total=0;
+        cart.forEach(item=>{
+          total+=item.price*item.qty;
+          box.innerHTML+=`${item.name} x${item.qty}<br>`;
+        });
+        document.getElementById("cartTotal").innerText=total;
+      }
+
+      //=========================
+      // AFFILATE LINKS
+      //=========================
+
+      function openAmazon(product){
+        window.open(`https://www.amazon.in/s?k=${encodeURIComponent(product)}&tag=youraffiliateid`);
+      }
+
+      function openFlipkart(product){
+        window.open(`https://www.flipkart.com/search?q=${encodeURIComponent(product)}&affid=youraffiliateid`);
+      }
+
+      function openAgro(product){
+        window.open(`https://dir.indiamart.com/search.mp?ss=${encodeURIComponent(product)}`);
+      }
+    </script>
+  </body>
+</html>

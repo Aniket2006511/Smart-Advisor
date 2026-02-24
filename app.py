@@ -1,23 +1,23 @@
 import os
 import io
+import re
 import base64
 import json
 import numpy as np
 import tensorflow as tf
 import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 from PIL import Image
 
-# =========================
-# LOAD ENV VARIABLES
-# =========================
-load_dotenv()
 
+
+load_dotenv()
 app = Flask(__name__)
 
 # =========================
-# LOAD TENSORFLOW MODEL (OFFLINE)
+# LOAD TENSORFLOW MODEL
 # =========================
 MODEL_PATH = "plant_model_tf"
 infer = None
@@ -34,23 +34,35 @@ except Exception as e:
 # =========================
 OPENROUTER_KEY = os.getenv("OPENROUTER_API_KEY")
 
-# Free vision-capable models on OpenRouter (tried in priority order)
-# openrouter/free = auto-picks any available free vision model (best for reliability)
 OPENROUTER_MODELS = [
-    "qwen/qwen2.5-vl-72b-instruct:free",             # Best free vision - 72B, very accurate
-    "qwen/qwen2.5-vl-32b-instruct:free",             # Qwen vision 32B fallback
-    "moonshotai/kimi-vl-a3b-thinking:free",          # Kimi VL - good vision
-    "google/gemma-3-27b-it:free",                    # Gemma 27B vision
-    "meta-llama/llama-3.2-11b-vision-instruct:free", # Llama vision
-    "mistralai/mistral-small-3.1-24b-instruct:free", # Mistral vision
-    "nvidia/nemotron-nano-12b-v2-vl:free",           # NVIDIA vision
-    "openrouter/free",                                # Final fallback - auto pick
+    # Qwen Vision - best accuracy for plant analysis
+    "qwen/qwen2.5-vl-72b-instruct:free",
+    "qwen/qwen2.5-vl-32b-instruct:free",
+    "qwen/qwen3-vl-235b-a22b-thinking",
+    "qwen/qwen3-vl-30b-a3b-thinking",
+    # Meta Llama Vision
+    "meta-llama/llama-4-maverick:free",
+    "meta-llama/llama-4-scout:free",
+    "meta-llama/llama-3.2-90b-vision-instruct:free",
+    "meta-llama/llama-3.2-11b-vision-instruct:free",
+    # Google
+    "google/gemma-3-27b-it:free",
+    "google/gemma-3-12b-it:free",
+    # Others
+    "moonshotai/kimi-vl-a3b-thinking:free",
+    "mistralai/mistral-small-3.1-24b-instruct:free",
+    "nvidia/nemotron-nano-12b-v2-vl:free",
+    # New high accuracy models
+    "google/gemini-2.5-pro-exp-03-25:free",
+    "bytedance-research/ui-tars-72b:free",
+    "mistralai/mistral-small-3.2-24b-instruct:free",
+    "openrouter/free",
 ]
 
 if OPENROUTER_KEY:
     print("✅ OpenRouter Ready")
 else:
-    print("❌ OPENROUTER_API_KEY missing")
+    print("⚠️ OpenRouter not configured")
 
 # =========================
 # LOAD CLASS + REMEDY DATA
@@ -71,7 +83,7 @@ def home():
     return render_template("index.html")
 
 # =========================
-# WEATHER (PUNE FIXED)
+# WEATHER
 # =========================
 @app.route("/weather")
 def get_weather():
@@ -79,9 +91,8 @@ def get_weather():
         api_key = "70179288ce4e3962226e3efd4e042cdc"
         city = "Pune"
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
-        response = requests.get(url)
+        response = requests.get(url, timeout=10)
         data = response.json()
-        print("FULL WEATHER RESPONSE:", data)
 
         if "main" not in data:
             return jsonify({"error": "Weather API error"})
@@ -134,7 +145,6 @@ def predict():
 
         idx = int(np.argmax(pred_array))
         confidence = float(pred_array[idx]) * 100
-
         predicted_class = class_names[idx]
         remedy = remedies.get(predicted_class)
 
@@ -154,7 +164,16 @@ def predict():
         return jsonify({"error": str(e)})
 
 # =========================
-# ONLINE PREDICTION (OPENROUTER)
+# NORMALIZE AI RESPONSE
+# =========================
+def normalize_ai_text(ai_text):
+    for label in ["CROP:", "DISEASE:", "CHEMICAL_EN:", "CHEMICAL_MR:", "ORGANIC_EN:", "ORGANIC_MR:"]:
+        ai_text = ai_text.replace(label, f"\n{label}\n")
+    ai_text = re.sub(r' - ', '\n- ', ai_text)
+    return ai_text.strip()
+
+# =========================
+# ONLINE PREDICTION
 # =========================
 @app.route("/predict_online", methods=["POST"])
 def predict_online():
@@ -164,128 +183,159 @@ def predict_online():
     try:
         file = request.files["file"]
         img_bytes = file.read()
-        mime_type = file.mimetype or "image/jpeg"
 
+        # Validate image
         try:
             Image.open(io.BytesIO(img_bytes)).verify()
         except Exception:
             return jsonify({"error": "Invalid image file"})
 
+        # Compress to 512px for faster upload
+        img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
+        img.thumbnail((512, 512))
+        buffer = io.BytesIO()
+        img.save(buffer, format="JPEG", quality=80)
+        img_bytes = buffer.getvalue()
+        mime_type = "image/jpeg"
+
+        prompt = (
+            "You are an expert plant pathologist and agricultural scientist.\n"
+            "Carefully examine this leaf image and identify the crop and disease.\n"
+            "If unsure about crop, write 'Unknown'. If healthy, write 'Healthy'.\n\n"
+            "Reply ONLY in this exact format with no extra text:\n\n"
+            "CROP: [crop name]\n"
+            "DISEASE: [disease name or Healthy]\n"
+            "CHEMICAL_EN:\n"
+            "- [chemical product name + dosage only, max 15 words]\n"
+            "- [chemical product name + dosage only, max 15 words]\n"
+            "- [chemical product name + dosage only, max 15 words]\n"
+            "- [chemical product name + dosage only, max 15 words]\n"
+            "CHEMICAL_MR:\n"
+            "- [वरील पहिला रासायनिक उपाय मराठीत, फक्त नाव आणि प्रमाण]\n"
+            "- [वरील दुसरा रासायनिक उपाय मराठीत]\n"
+            "- [वरील तिसरा रासायनिक उपाय मराठीत]\n"
+            "- [वरील चौथा रासायनिक उपाय मराठीत]\n"
+            "ORGANIC_EN:\n"
+            "- [detailed organic remedy - how to prepare it, how to apply it, how often, 2-3 sentences]\n"
+            "- [detailed organic remedy - how to prepare it, how to apply it, how often, 2-3 sentences]\n"
+            "- [detailed organic remedy - how to prepare it, how to apply it, how often, 2-3 sentences]\n"
+            "- [detailed organic remedy - how to prepare it, how to apply it, how often, 2-3 sentences]\n"
+            "- [detailed organic remedy - how to prepare it, how to apply it, how often, 2-3 sentences]\n"
+            "ORGANIC_MR:\n"
+            "- [वरील पहिला सेंद्रिय उपाय संपूर्ण मराठीत - तयारी, वापर आणि वेळ सांगा]\n"
+            "- [वरील दुसरा सेंद्रिय उपाय संपूर्ण मराठीत]\n"
+            "- [वरील तिसरा सेंद्रिय उपाय संपूर्ण मराठीत]\n"
+            "- [वरील चौथा सेंद्रिय उपाय संपूर्ण मराठीत]\n"
+            "- [वरील पाचवा सेंद्रिय उपाय संपूर्ण मराठीत]\n"
+            "Chemical points: exactly 4, short and specific. Organic points: exactly 5, detailed 2-3 sentences each. Marathi must be proper Marathi script only.\n"
+            "Also add this at the very end:\n"
+            "CONFIDENCE: [0-100% how confident you are this diagnosis is correct]"
+        )
+
         image_b64 = base64.b64encode(img_bytes).decode("utf-8")
 
+        def try_model(model):
+            response = requests.post(
+                url="https://openrouter.ai/api/v1/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {OPENROUTER_KEY}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://smart-crop-advisor.app",
+                    "X-Title": "Smart Crop Advisor",
+                },
+                json={
+                    "model": model,
+                    "max_tokens": 1200,
+                    "messages": [{
+                        "role": "user",
+                        "content": [
+                            {"type": "image_url", "image_url": {"url": f"data:{mime_type};base64,{image_b64}"}},
+                            {"type": "text", "text": prompt}
+                        ]
+                    }],
+                },
+                timeout=30
+            )
+            result = response.json()
+            if "error" in result:
+                raise Exception(result["error"].get("message", "Unknown error"))
+            ai_text = result["choices"][0]["message"]["content"]
+            if not ai_text or ai_text.strip() == "":
+                raise Exception("Empty response")
+            return model, ai_text
+
+        # Try models in parallel
         last_error = None
-        for model in OPENROUTER_MODELS:
-            try:
-                print(f"Trying OpenRouter model: {model}")
-                response = requests.post(
-                    url="https://openrouter.ai/api/v1/chat/completions",
-                    headers={
-                        "Authorization": f"Bearer {OPENROUTER_KEY}",
-                        "Content-Type": "application/json",
-                        "HTTP-Referer": "https://smart-crop-advisor.app",
-                        "X-Title": "Smart Crop Advisor",
-                    },
-                    json={
-                        "model": model,
-                        "max_tokens": 600,
-                        "messages": [
-                            {
-                                "role": "user",
-                                "content": [
-                                    {
-                                        "type": "image_url",
-                                        "image_url": {"url": f"data:{mime_type};base64,{image_b64}"}
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": (
-                                            "You are an expert plant pathologist. Carefully examine this leaf image.\n"
-                                            "Identify the exact crop and any disease visible. Be precise - do not guess.\n"
-                                            "If unsure about crop, write 'Unknown'. If leaf is healthy, write 'Healthy'.\n\n"
-                                            "Reply ONLY in this exact format:\n\n"
-                                            "CROP: [exact crop name]\n"
-                                            "DISEASE: [exact disease name or Healthy]\n"
-                                            "CHEMICAL_EN:\n"
-                                            "- [specific treatment point]\n"
-                                            "- [specific treatment point]\n"
-                                            "- [specific treatment point]\n"
-                                            "- [specific treatment point]\n"
-                                            "- [specific treatment point]\n"
-                                            "CHEMICAL_MR:\n"
-                                            "- [above 5 points in proper Marathi]\n"
-                                            "- [Marathi]\n"
-                                            "- [Marathi]\n"
-                                            "- [Marathi]\n"
-                                            "- [Marathi]\n"
-                                            "ORGANIC_EN:\n"
-                                            "- [organic remedy point]\n"
-                                            "- [organic remedy point]\n"
-                                            "- [organic remedy point]\n"
-                                            "- [organic remedy point]\n"
-                                            "- [organic remedy point]\n"
-                                            "ORGANIC_MR:\n"
-                                            "- [above 5 points in proper Marathi]\n"
-                                            "- [Marathi]\n"
-                                            "- [Marathi]\n"
-                                            "- [Marathi]\n"
-                                            "- [Marathi]\n"
-                                            "Write exactly 5 points per section. No extra text."
-                                        )
-                                    }
-                                ]
-                            }
-                        ],
-                    },
-                    timeout=30
-                )
+        winner_model = None
+        winner_text = None
 
-                result = response.json()
-                if "error" in result:
-                    raise Exception(result["error"].get("message", "Unknown error"))
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            futures = {executor.submit(try_model, m): m for m in OPENROUTER_MODELS[:8]}
+            for future in as_completed(futures):
+                model = futures[future]
+                try:
+                    winner_model, winner_text = future.result()
+                    print(f"✅ Parallel success: {winner_model}")
+                    for f in futures:
+                        f.cancel()
+                    break
+                except Exception as e:
+                    print(f"❌ {model} failed: {e}")
+                    last_error = str(e)
 
-                ai_text = result["choices"][0]["message"]["content"]
+        if not winner_text:
+            for model in OPENROUTER_MODELS[8:]:
+                try:
+                    winner_model, winner_text = try_model(model)
+                    print(f"✅ Sequential success: {winner_model}")
+                    break
+                except Exception as e:
+                    print(f"❌ {model} failed: {e}")
+                    last_error = str(e)
 
-                # If model returned empty, try next one
-                if not ai_text or ai_text.strip() == "":
-                    raise Exception("Model returned empty response")
-
-                # Force each section label onto its own line
-                for label in ["CROP:", "DISEASE:", "CHEMICAL_EN:", "CHEMICAL_MR:", "ORGANIC_EN:", "ORGANIC_MR:"]:
-                    ai_text = ai_text.replace(label, f"\n{label}\n")
-                # Force each bullet onto its own line
-                ai_text = ai_text.replace(" - ", "\n- ")
-                ai_text = ai_text.strip()
-
-                # Force each label and bullet onto its own line
-                for label in ["CROP:", "DISEASE:", "CHEMICAL_EN:", "CHEMICAL_MR:", "ORGANIC_EN:", "ORGANIC_MR:"]:
-                    ai_text = ai_text.replace(label, f"\n{label}\n")
-                # Split bullets that are joined inline: "- x - y" → each on own line
-                import re
-                ai_text = re.sub(r'\s+-\s+', '\n- ', ai_text)
-                ai_text = ai_text.strip()
-
-                # Normalize: force section labels onto their own lines
-                for label in ["CROP:", "DISEASE:", "CHEMICAL_EN:", "CHEMICAL_MR:", "ORGANIC_EN:", "ORGANIC_MR:"]:
-                    ai_text = ai_text.replace(label, f"\n{label}\n")
-                ai_text = ai_text.replace(" - ", "\n- ")
-
-                print(f"✅ Success with: {model}")
-                return jsonify({
-                    "diagnosis": "AI Vision Analysis",
-                    "ai_response": ai_text,
-                    "model_used": model
-                })
-
-            except Exception as e:
-                print(f"❌ {model} failed: {e}")
-                last_error = str(e)
-                continue
+        if winner_text:
+            import re as re2
+            conf_match = re2.search(r'CONFIDENCE:\s*(\d+(?:\.\d+)?%?)', winner_text, re2.IGNORECASE)
+            confidence_str = conf_match.group(1) if conf_match else "N/A"
+            # Remove confidence line from ai_response display
+            clean_text = re2.sub(r'\nCONFIDENCE:.*', '', winner_text).strip()
+            return jsonify({
+                "diagnosis": "AI Vision Analysis",
+                "ai_response": normalize_ai_text(clean_text),
+                "model_used": winner_model,
+                "ai_confidence": confidence_str
+            })
 
         return jsonify({"error": f"All AI models failed. Last error: {last_error}"})
 
     except Exception as e:
-        print("OpenRouter Error:", e)
+        print("Online Prediction Error:", e)
         return jsonify({"error": str(e)})
+
+ # =========================
+# MARKET PAGE
+# =========================
+@app.route("/market")
+def market():
+    chemicals = request.args.get("chemicals", "")
+    chemical_list = chemicals.split("|") if chemicals else []
+    return render_template("market.html", chemicals=chemical_list)
+
+
+# =========================
+# EXPERIENCE PAGE
+# =========================
+@app.route("/experience")
+def experience():
+    return render_template("experience.html")
+
+
+# =========================
+# PLAN PAGE
+# =========================
+@app.route("/plan")
+def plan():
+    return render_template("plan.html")       
 
 # =========================
 # RUN

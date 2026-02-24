@@ -16,6 +16,11 @@ function analyzeImage() {
     return;
   }
 
+  // Show loading state
+  document.getElementById("result-section").style.display = "block";
+  document.getElementById("disease-name").innerHTML = "⏳ Analyzing...";
+  document.getElementById("remedy-content").innerHTML = "Please wait, AI is analyzing your image...";
+
   const selectedMode = document.querySelector('input[name="mode"]:checked').value;
   const endpoint = selectedMode === "online" ? "/predict_online" : "/predict";
 
@@ -155,30 +160,35 @@ function showOnlineResult(data) {
 
   document.getElementById("result-section").style.display = "block";
 
-  const raw = data.ai_response || "";
+  let raw = data.ai_response || "";
+
+  // Strip <think>...</think> blocks from reasoning models
+  raw = raw.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+  // Strip markdown bold
+  raw = raw.replace(/\*\*/g, "");
 
   // Parse structured sections by label
   function extractSection(text, label) {
-    const regex = new RegExp(label + ":\\s*\\n([\\s\\S]*?)(?=\\n[A-Z_]+:|$)", "i");
+    const regex = new RegExp(label + ":?\\s*\\n([\\s\\S]*?)(?=\\n[A-Z_]+:|$)", "i");
     const match = text.match(regex);
     if (!match) return [];
     return match[1]
       .split("\n")
-      .map(l => l.replace(/^[-*•]\s*/, "").replace(/\*\*/g, "").trim())
+      .map(l => l.replace(/^[-*•]\s*/, "").trim())
       .filter(l => l.length > 2);
   }
 
   function extractField(text, label) {
-    const match = text.match(new RegExp(label + ":\\s*(.+)", "i"));
-    return match ? match[1].replace(/\*\*/g, "").trim() : "";
+    const match = text.match(new RegExp(label + ":?\\s*([^\\n]+)", "i"));
+    return match ? match[1].trim() : "";
   }
 
-  const crop    = extractField(raw, "CROP");
+  const crop = extractField(raw, "CROP");
   const disease = extractField(raw, "DISEASE");
-  const chemEn  = extractSection(raw, "CHEMICAL_EN");
-  const chemMr  = extractSection(raw, "CHEMICAL_MR");
-  const orgEn   = extractSection(raw, "ORGANIC_EN");
-  const orgMr   = extractSection(raw, "ORGANIC_MR");
+  const chemEn = extractSection(raw, "CHEMICAL_EN");
+  const chemMr = extractSection(raw, "CHEMICAL_MR");
+  const orgEn = extractSection(raw, "ORGANIC_EN");
+  const orgMr = extractSection(raw, "ORGANIC_MR");
 
   const title = crop && disease ? `${crop} — ${disease}` : (crop || disease || "AI Vision Analysis");
   document.getElementById("disease-name").innerHTML = "<b>Diagnosis:</b> " + title;
@@ -216,6 +226,8 @@ function showOnlineResult(data) {
   document.getElementById("remedy-content").innerHTML = html;
 
   lastEnglishSteps = [...chemEn, ...orgEn];
+  const chemicalList = chemEn.join("|");
+  addMarketButton(chemicalList);
   lastMarathiSteps = [...chemMr, ...orgMr];
   lastAIResponse = "";
 
@@ -320,3 +332,24 @@ function loadWeather() {
 }
 
 window.addEventListener("load", loadWeather);
+
+function addMarketButton(chemicals) {
+
+  const existing = document.getElementById("market-btn");
+  if (existing) existing.remove();
+
+  const btn = document.createElement("button");
+  btn.id = "market-btn";
+  btn.innerText = "🛒 Buy Recommended Chemicals";
+  btn.style.marginTop = "15px";
+  btn.style.background = "#ff5722";
+  btn.style.color = "white";
+  btn.style.padding = "10px";
+  btn.style.borderRadius = "8px";
+
+  btn.onclick = function () {
+    window.open("/market?chemicals=" + encodeURIComponent(chemicals), "_blank");
+  };
+
+  document.getElementById("result-section").appendChild(btn);
+}
