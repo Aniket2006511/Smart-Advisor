@@ -1,0 +1,30 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Push to HF using huggingface_hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install huggingface_hub
+          python - <<'EOF'
+          import os
+          from huggingface_hub import HfApi
+          api = HfApi()
+          api.upload_folder(
+              folder_path=".",
+              repo_id="Northhxxx/Smart-Advisor",
+              repo_type="space",
+              token=os.environ["HF_TOKEN"],
+              ignore_patterns=["*.git*", ".github", "node_modules", "__pycache__", "test"]
+          )
+          EOF
